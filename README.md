@@ -80,19 +80,43 @@ Once the PCA Early Warning System triggers the alert, a sophisticated **Multi-Ag
 - **Multimodal Context Integration:** Simultaneously processes unstructured text, structured numerical data, and visual schematics to ensure a 360-degree understanding of the industrial event.
 - **Self-Correction Loop:** Agents use a recursive feedback loop to cross-validate findings (e.g., if the Vision Agent detects a misalignment, the Data Agent verifies if the vibration frequency matches that specific mechanical failure).
 
-#### Multi-Agent Diagnostic Trace (Demo Simulation)
+#### Multi-Agent Diagnostic Trace (Agentic Workflow)
 
-In the event of a PCA-triggered anomaly, the multi-agent system generates a collaborative diagnostic trace similar to the following:
+In the event of a PCA-triggered anomaly, the multi-agent system orchestrates a collaborative diagnostic sequence as visualized below:
 
-> **[System Trigger]:** PCA Reconstruction Error breach detected in Turbine-04 (UCL exceeded by 15%).
-> 
-> **Data Specialist Agent (AutoGen):** Analyzing live SCADA streams... Vibration amplitude on Bearing 2 has drifted from 0.4mm/s to 1.8mm/s. Temperature is stable at 76°C. Vibration frequency spectrum shows a peak at 1x RPM.
-> 
-> **Technical Librarian Agent (CrewAI):** Querying ChromaDB for Turbine-04 Maintenance Manual (Section: Vibration Analysis). Found correlation: 1x RPM vibration peaks with stable temperature typically indicate mechanical unbalance or misalignment rather than bearing fatigue.
-> 
-> **Vision Analyst Agent:** Analyzing latest diagnostic schematics and thermal charts... Thermal imaging confirms no localized hotspots on Bearing 2, supporting the Librarian's hypothesis of unbalance over friction-based wear.
-> 
-> **Synthesizer Agent:** Diagnostic complete. **Root Cause:** Mechanical unbalance in Turbine-04. **Action Plan:** Scheduled balance check required. Estimated time to failure: 18 minutes. Safety Protocol 4.2 activated.
+```mermaid
+flowchart LR
+    subgraph "Event Trigger"
+        T[PCA Breach: Turbine-04]
+    end
+
+    subgraph "Multi-Agent Collaboration (CrewAI + AutoGen)"
+        direction TB
+        A1[<b>Data Specialist</b><br/>AutoGen]
+        A2[<b>Technical Librarian</b><br/>CrewAI]
+        A3[<b>Vision Analyst</b><br/>GPT-4o]
+        
+        A1 -->|Vibration Spectrum: 1x RPM| S[<b>Synthesizer Agent</b>]
+        A2 -->|Manual: Unbalance Pattern| S
+        A3 -->|Thermal: No Hotspots| S
+    end
+
+    subgraph "Autonomous Resolution"
+        S --> R[<b>Root Cause:</b> Mechanical Unbalance]
+        R --> AP[<b>Action Plan:</b> Schedule Balance Check]
+        AP --> TTF[<b>Time-to-Failure:</b> 18 Minutes]
+    end
+
+    %% Styling
+    style T fill:#ef4444,stroke:#fff,stroke-width:2px,color:#fff
+    style A1 fill:#38bdf8,stroke:#0f172a,color:#0f172a
+    style A2 fill:#38bdf8,stroke:#0f172a,color:#0f172a
+    style A3 fill:#38bdf8,stroke:#0f172a,color:#0f172a
+    style S fill:#818cf8,stroke:#fff,color:#fff
+    style R fill:#22c55e,stroke:#fff,color:#fff
+    style AP fill:#22c55e,stroke:#fff,color:#fff
+    style TTF fill:#fbbf24,stroke:#0f172a,color:#0f172a
+```
 
 ---
 
