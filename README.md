@@ -1,6 +1,6 @@
 # Plant GPT | Industrial AI Assistant for Field Engineers
 
-Plant GPT is a specialized **Multimodal RAG (Retrieval-Augmented Generation)** system designed for predictive maintenance and real-time troubleshooting in high-stakes industrial environments like Aluminium Bahrain (ALBA). 
+Plant GPT is a specialized **Multimodal RAG (Retrieval-Augmented Generation)** system designed for predictive maintenance and real-time troubleshooting in high-stakes industrial environments. 
 
 The system acts as a technical intelligence bridge, triggered by an **Early Warning System (EWS)** that detects anomalies using **Principal Component Analysis (PCA)** 15–20 minutes before a potential failure occurs.
 
@@ -23,12 +23,42 @@ The platform integrates traditional machine learning with state-of-the-art Gener
 
 ---
 
-## Core Capabilities
+## System Workflow Visualization
 
-- **Predictive Troubleshooting:** Provides the "What," "Where," and "Why" of an anomaly 20 minutes before it escalates.
-- **Multimodal Context:** Simultaneously queries live sensor data and static technical documentation to verify mechanical issues.
-- **Layout-Aware Extraction:** Advanced parsing of engineering schematics and hierarchical technical manuals.
-- **Conversational Feedback:** Engineers can ask follow-up questions about specific components or safety risks during a live event.
+```mermaid
+flowchart TD
+    subgraph "Predictive Analytics Layer"
+        A[Live Sensor Streams] --> B[PCA Anomaly Detection]
+        B --> C{Anomaly Detected?}
+        C -->|Yes| D[Trigger RAG Agent]
+    end
+
+    subgraph "Knowledge Retrieval Layer"
+        D --> E[Query Technical Manuals]
+        D --> F[Fetch Live Sensor Context]
+        D --> G[Analyze Maintenance Logs]
+    end
+
+    subgraph "Intelligent Synthesis Layer"
+        E & F & G --> H[Multimodal LLM Processing]
+        H --> I[Plain English Troubleshooting Steps]
+        I --> J[Field Engineer Mobile/Tablet]
+    end
+```
+
+---
+
+## Visualization & Demo Insights
+
+To demonstrate the system's effectiveness, the following visualizations are typically generated during the anomaly-to-resolution cycle:
+
+### 1. PCA Anomaly Detection (Clustering & Reconstuction Error)
+- **PCA Cluster Plot:** Visualizes high-dimensional sensor data reduced to 2D/3D. Normal operations are clustered tightly, while anomalous data points drift significantly from the centroid.
+- **Reconstruction Error Line Chart:** A time-series chart showing the error threshold. When the PCA reconstruction error crosses the red "Warning" line, the system provides a 20-minute lead time for intervention.
+
+### 2. Multimodal Diagnostic Output
+- **Sensor Drift Analysis:** A multi-line chart comparing the anomalous sensor (e.g., Turbine Vibration) against its historical baseline.
+- **RAG Response Interface:** A conversational UI where the AI explains: *"Anomaly detected in Component X. Based on Page 42 of the Maintenance Manual, this vibration pattern indicates a bearing misalignment. Recommendation: Inspect seal integrity immediately."*
 
 ---
 
@@ -43,10 +73,10 @@ The platform integrates traditional machine learning with state-of-the-art Gener
 ## Tech Stack (Conceptual)
 
 - **AI/ML:** PCA (Scikit-Learn), LangChain (RAG Orchestration).
-- **LLMs:** Llama 3 (Groq), GPT-4o-mini (Vision).
-- **Data:** DuckDB (Sensor Data), ChromaDB (Vector Search).
+- **LLMs:** Llama 3 (Groq), GPT-4o-mini (Vision Integration).
+- **Data:** DuckDB (Sensor Analytics), ChromaDB (Vector Search).
 - **Parsing:** Layout-aware parsing of engineering PDFs and charts.
 
 ---
 
-*This project represents professional work delivered for a high-stakes industrial client (ALBA), demonstrating expertise in combining Predictive Analytics with Generative AI.*
+*This project represents professional work delivered for a previous organization, demonstrating expertise in combining Predictive Analytics with Generative AI for industrial reliability.*
