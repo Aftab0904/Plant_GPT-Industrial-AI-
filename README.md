@@ -80,6 +80,20 @@ Once the PCA Early Warning System triggers the alert, a sophisticated **Multi-Ag
 - **Multimodal Context Integration:** Simultaneously processes unstructured text, structured numerical data, and visual schematics to ensure a 360-degree understanding of the industrial event.
 - **Self-Correction Loop:** Agents use a recursive feedback loop to cross-validate findings (e.g., if the Vision Agent detects a misalignment, the Data Agent verifies if the vibration frequency matches that specific mechanical failure).
 
+#### Multi-Agent Diagnostic Trace (Demo Simulation)
+
+In the event of a PCA-triggered anomaly, the multi-agent system generates a collaborative diagnostic trace similar to the following:
+
+> **[System Trigger]:** PCA Reconstruction Error breach detected in Turbine-04 (UCL exceeded by 15%).
+> 
+> **Data Specialist Agent (AutoGen):** Analyzing live SCADA streams... Vibration amplitude on Bearing 2 has drifted from 0.4mm/s to 1.8mm/s. Temperature is stable at 76°C. Vibration frequency spectrum shows a peak at 1x RPM.
+> 
+> **Technical Librarian Agent (CrewAI):** Querying ChromaDB for Turbine-04 Maintenance Manual (Section: Vibration Analysis). Found correlation: 1x RPM vibration peaks with stable temperature typically indicate mechanical unbalance or misalignment rather than bearing fatigue.
+> 
+> **Vision Analyst Agent:** Analyzing latest diagnostic schematics and thermal charts... Thermal imaging confirms no localized hotspots on Bearing 2, supporting the Librarian's hypothesis of unbalance over friction-based wear.
+> 
+> **Synthesizer Agent:** Diagnostic complete. **Root Cause:** Mechanical unbalance in Turbine-04. **Action Plan:** Scheduled balance check required. Estimated time to failure: 18 minutes. Safety Protocol 4.2 activated.
+
 ---
 
 ## Business & Industrial Impact
