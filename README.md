@@ -52,13 +52,24 @@ flowchart TD
 
 To demonstrate the system's effectiveness, the following visualizations are typically generated during the anomaly-to-resolution cycle:
 
-### 1. PCA Anomaly Detection (Clustering & Reconstuction Error)
-- **PCA Cluster Plot:** Visualizes high-dimensional sensor data reduced to 2D/3D. Normal operations are clustered tightly, while anomalous data points drift significantly from the centroid.
-- **Reconstruction Error Line Chart:** A time-series chart showing the error threshold. When the PCA reconstruction error crosses the red "Warning" line, the system provides a 20-minute lead time for intervention.
+### 1. PCA Anomaly Detection (Clustering & Reconstruction Error)
+- **High-Dimensional Clustering:** Visualizes sensor data reduced to 2D/3D space. Normal operating states form dense, stable clusters, while anomalous drifts are identified as statistical outliers.
+- **Isolation Forest Comparison:** While Isolation Forest was evaluated for its efficiency in high-dimensional outlier detection, **Principal Component Analysis (PCA)** was selected for production due to its superior reconstruction error sensitivity, providing a more reliable 15-20 minute lead time for industrial failures.
+- **Reconstruction Error Trendline:** A time-series visualization tracking the variance from the learned baseline. A breach of the statistically defined "Upper Control Limit" (UCL) serves as the autonomous trigger for the RAG agent.
+
+<p align="center">
+  <img src="./assets/pca_clustering.png" width="80%" alt="PCA Clustering Visualization" />
+</p>
+<p align="center"><i>Figure 1: Multidimensional clustering showing normal operating baseline vs. anomalous drift.</i></p>
 
 ### 2. Multimodal Diagnostic Output
-- **Sensor Drift Analysis:** A multi-line chart comparing the anomalous sensor (e.g., Turbine Vibration) against its historical baseline.
-- **RAG Response Interface:** A conversational UI where the AI explains: *"Anomaly detected in Component X. Based on Page 42 of the Maintenance Manual, this vibration pattern indicates a bearing misalignment. Recommendation: Inspect seal integrity immediately."*
+- **Sensor Trend Analysis:** High-resolution trendlines comparing real-time sensor data (e.g., vibration, thermal discharge) against predicted normal ranges.
+- **Root Cause Synthesis:** The RAG system correlates the detected trendline breach with historical maintenance logs and technical schematics to provide a definitive diagnosis.
+
+<p align="center">
+  <img src="./assets/sensor_trendlines.png" width="80%" alt="Sensor Trendline Analysis" />
+</p>
+<p align="center"><i>Figure 2: Real-time sensor trendlines showing the 20-minute lead time provided by the PCA engine.</i></p>
 
 ---
 
