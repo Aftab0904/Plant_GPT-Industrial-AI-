@@ -1,0 +1,30 @@
+# Core
+langchain
+langchain-groq
+langchain-openai
+python-dotenv
+
+# Data & ML
+numpy
+pandas
+scikit-learn
+scipy
+duckdb
+
+# Vector Storage
+chromadb
+
+# Document Processing
+pypdf
+pdfplumber
+opencv-python
+pillow
+unstructured[all-docs]
+
+# Backend & UI
+fastapi
+uvicorn
+streamlit
+plotly
+matplotlib
+seaborn
