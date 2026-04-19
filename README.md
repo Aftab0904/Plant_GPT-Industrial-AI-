@@ -27,25 +27,39 @@ The platform integrates traditional machine learning with state-of-the-art Gener
 
 ```mermaid
 flowchart TD
-    subgraph "Predictive Analytics Layer"
-        A[Live Sensor Streams] --> B[PCA Anomaly Detection]
-        B --> C{Anomaly Detected?}
-        C -->|Yes| D[Trigger RAG Agent]
+    subgraph "Predictive Analytics Layer (PCA Early Warning)"
+        A[<b>Live Sensor Streams</b><br/>IoT/SCADA Data] --> B[<b>PCA Anomaly Engine</b><br/>Scikit-Learn]
+        B --> C{<b>Anomaly Drift?</b>}
+        C -->|Yes: UCL Breach| D[<b>Trigger RAG Agent</b>]
     end
 
-    subgraph "Knowledge Retrieval Layer"
-        D --> E[Query Technical Manuals]
-        D --> F[Fetch Live Sensor Context]
-        D --> G[Analyze Maintenance Logs]
+    subgraph "Knowledge Retrieval Layer (Multimodal Context)"
+        D --> E[<b>Technical Manuals</b><br/>Vector Search]
+        D --> F[<b>Live Sensor Context</b><br/>Real-time Analytics]
+        D --> G[<b>Maintenance Logs</b><br/>Historical Data]
     end
 
-    subgraph "Intelligent Synthesis Layer"
-        E --> H[Multimodal LLM Processing]
+    subgraph "Intelligent Synthesis Layer (Multi-Agent Reasoning)"
+        E --> H[<b>Multi-Agent Orchestration</b><br/>CrewAI + AutoGen]
         F --> H
         G --> H
-        H --> I[Plain English Troubleshooting Steps]
-        I --> J[Field Engineer Mobile/Tablet]
+        H --> I[<b>Root Cause & Action Plan</b>]
+        I --> J[<b>Field Engineer Tablet</b><br/>Operational Intelligence]
     end
+
+    %% Layer Styling
+    style A fill:#38bdf8,stroke:#0f172a,color:#0f172a
+    style B fill:#38bdf8,stroke:#0f172a,color:#0f172a
+    style C fill:#fbbf24,stroke:#0f172a,color:#0f172a
+    style D fill:#ef4444,stroke:#fff,color:#fff
+    
+    style E fill:#818cf8,stroke:#fff,color:#fff
+    style F fill:#818cf8,stroke:#fff,color:#fff
+    style G fill:#818cf8,stroke:#fff,color:#fff
+    
+    style H fill:#c084fc,stroke:#fff,color:#fff
+    style I fill:#22c55e,stroke:#fff,color:#fff
+    style J fill:#0f172a,stroke:#38bdf8,color:#38bdf8
 ```
 
 ---
