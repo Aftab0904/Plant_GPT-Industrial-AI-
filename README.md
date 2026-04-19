@@ -64,6 +64,11 @@ To demonstrate the system's effectiveness, the following visualizations are typi
 </p>
 <p align="center"><i>Figure 1: Multidimensional clustering showing normal operating baseline vs. anomalous drift.</i></p>
 
+<p align="center">
+  <img src="./assets/sensor_trendlines.png" width="80%" alt="Sensor Trendline Analysis" />
+</p>
+<p align="center"><i>Figure 2: Real-time sensor trendlines showing the 20-minute lead time provided by the PCA engine.</i></p>
+
 ### 2. Multi-Agent Multimodal RAG Engine
 Once the PCA Early Warning System triggers the alert, a sophisticated **Multi-Agent Orchestration** layer (powered by **CrewAI** and **AutoGen**) takes over to perform a deep-dive diagnostic across multimodal data streams:
 
@@ -74,11 +79,6 @@ Once the PCA Early Warning System triggers the alert, a sophisticated **Multi-Ag
     - **Synthesizer Agent:** Aggregates findings from all agents into a "Plain English" troubleshooting report for field engineers.
 - **Multimodal Context Integration:** Simultaneously processes unstructured text, structured numerical data, and visual schematics to ensure a 360-degree understanding of the industrial event.
 - **Self-Correction Loop:** Agents use a recursive feedback loop to cross-validate findings (e.g., if the Vision Agent detects a misalignment, the Data Agent verifies if the vibration frequency matches that specific mechanical failure).
-
-<p align="center">
-  <img src="./assets/sensor_trendlines.png" width="80%" alt="Sensor Trendline Analysis" />
-</p>
-<p align="center"><i>Figure 2: Real-time sensor trendlines showing the 20-minute lead time provided by the PCA engine.</i></p>
 
 ---
 
