@@ -40,7 +40,9 @@ flowchart TD
     end
 
     subgraph "Intelligent Synthesis Layer"
-        E & F & G --> H[Multimodal LLM Processing]
+        E --> H[Multimodal LLM Processing]
+        F --> H
+        G --> H
         H --> I[Plain English Troubleshooting Steps]
         I --> J[Field Engineer Mobile/Tablet]
     end
